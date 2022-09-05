@@ -16,8 +16,8 @@ class CreateDetailUserTable extends Migration
     {
         Schema::create('detail_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('type_user_id');
+            $table->foreignId('user_id') -> Nullabel() ->index('fk_detail_user_to_user');
+            $table->foreignId('type_user_id')-> Nullabel()->index('fk_detail_user_to_type_user');
             $table->string('contac') -> Nullabel();
             $table->longText('address') -> Nullabel();
             $table->longText('photo') -> Nullabel();
