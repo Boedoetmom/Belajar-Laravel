@@ -15,9 +15,9 @@ class CreateAppointmentTable extends Migration
     {
         Schema::create('appointment', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id');
-            $table->integer('user_id');
-            $table->integer('consultation_id');
+            $table->foreignId('doctor_id')->Nullabel()->index('fk_appointment_to_doctor');
+            $table->foreignId('user_id')->Nullabel()->index('fk_appointment_to_users');
+            $table->foreignId('consultation_id')->Nullabel()->index('fk_appointment_to_consultation');
             $table->enum('level', [1, 2, 3]);
             $table->date('date');
             $table->time('time');
