@@ -26,5 +26,14 @@ protected $fillable = [
     'updated_at',
     'deleted_at',
     ];
- 
+
+    public function role_user() {
+
+        return $this->hasMany('App\Models\ManagementAccess\RoleUSer', 'role_id');
+   }
+   
+   public function permission_role() {
+
+    return $this->hasMany('App\Models\ManagementAccess\permission_role', 'role_id');
+}
 }

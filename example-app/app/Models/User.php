@@ -9,20 +9,32 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
-    use HasFactory;
+    //use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
+
+    protected $dates = [
+    
+        'create_at',
+        'update_at',
+        'delete_at',
+        'email_verified_at'
+    ];
+    
+    
     protected $fillable = [
         'name',
         'email',
@@ -58,4 +70,21 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    function appointment() {
+
+        return $this->hasMany('public\App\Models\Operational\Appointment', 'user_id');
+    }
+
+
+    function detail_user() {
+
+        return $this->hasOne('App\Models\MasterData\DetailUser', 'user_id');
+    }
+
+    function role_user() {
+
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
+    
 }

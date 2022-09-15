@@ -11,7 +11,7 @@ class DetailUser extends Model
    //use HasFactory;
     use SoftDeletes;
 
-    public $table = 'detal_user';
+    public $table = 'detail_user';
 
     protected $date = [
 
@@ -22,7 +22,7 @@ class DetailUser extends Model
 
     protected $fillable = [
         'user_id',
-        'type_userid',
+        'type_user_id',
         'contact',
         'address',
         'photo',
@@ -32,5 +32,17 @@ class DetailUser extends Model
         'deleted_at',
     ];
 
+    public function type_user() {
+
+        return $this->belongsTo('App\Models\MasterData\TypeUser', 'type_user_id', 'id');
+   }
+
+   public function user() {
+
+    return $this->belongsTo('App\Models\User', 'user_id', 'id');
+}
+
+
+    
 
 }
