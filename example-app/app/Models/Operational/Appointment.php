@@ -47,7 +47,7 @@ function consultation() {
 
 function user() {
 
-    return $this->belongsTo('App\Models\USer', 'user_id', 'id');
+    return $this->belongsTo('App\Models\User', 'user_id', 'id');
 }
 
 function transaction() {
