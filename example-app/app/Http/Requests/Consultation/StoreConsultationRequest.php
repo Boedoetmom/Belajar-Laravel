@@ -31,7 +31,7 @@ class StoreConsultationRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string',
+                'required', 'string', 'max:255', 'unique:consultation',
             ],
         ];
     }

@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 // The Rule only update requests
-use Illuminate\Validation\Rule;
 
 class StoreUserRequest extends FormRequest
 {
@@ -36,7 +35,7 @@ class StoreUserRequest extends FormRequest
             ],
             
             'email' => [
-                'required', 'email', 'max:255', Rule::unique('users')->ignore($this->user)
+                'required', 'email', 'max:255',
             ],
 
             'password' => [

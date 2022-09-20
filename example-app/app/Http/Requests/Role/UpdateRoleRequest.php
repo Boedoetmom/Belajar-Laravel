@@ -8,7 +8,6 @@ use App\Models\ManagementAccess\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 // The Rule only update requests
-use Illuminate\Validation\Rule;
 
 class UpdateRoleRequest extends FormRequest
 {

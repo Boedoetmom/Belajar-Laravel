@@ -7,8 +7,7 @@ use App\Models\Operational\Doctor;
 //use gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
-// The Rule only update requests
-use Illuminate\Validation\Rule;
+
 
 class UpdateDoctorRequest extends FormRequest
 {
